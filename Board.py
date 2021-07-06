@@ -14,24 +14,28 @@ class Board():
 
     def validPlacement(self, row, col):
         placement = self.grid[row][col]
+        print("row : {}".format(row))
+        print("col : {}".format(col))
+
         for x in range(len(self.grid)):
             for y in range(len(self.grid[x])):
-                print("y is : {}".format(y))
-														      
+
                 rowlist = []
                 column = []
                 square = []
                 for lines in range(0, 9):    
-                    print("Appending {}".format(self.grid[y][lines]))
-                    if self.grid[y][lines] != 0:
-                        rowlist.append(self.grid[y][lines])
+                    #print("Appending {}".format(self.grid[y][lines]))
+                    if self.grid[row][lines] != 0:
+                        rowlist.append(self.grid[0][lines])
                     
-                    if self.grid[lines][x] != 0:
-                        column.append(self.grid[lines][x])
-
-                print(rowlist)
+                    #print("Appending {}".format(self.grid[lines][x]))
+                    if self.grid[lines][col] != 0:
+                        column.append(self.grid[lines][col])
+    
+                print(f"rowlist: {rowlist}")
+                print(f"column: {column}")
                 if (len(rowlist) == len(set(rowlist))):
-                    if len(column) == len(set(column)):
+                    if (len(column) == len(set(column))):
                         print("TURUURUEUUEU")
                         return True 
                     else:
@@ -40,6 +44,10 @@ class Board():
                 else: 
                     print("NOT ELIGIBLE")
                     return False
+
+    def showGrid(self):
+        for i in self.grid:
+            print(i)
 
                 # for UDline in range(0, 9):
                 #     print("UDline {}".format(self.grid[UDline][x]))
