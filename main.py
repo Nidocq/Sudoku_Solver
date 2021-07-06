@@ -2,4 +2,12 @@
 from Board import *
 from BackTrack import *
 
-print(solve(0, 0))
+if solve(0, 0):
+    print("--- Winning ---")
+    board.showGrid()
+
+else:
+    print("No solution was found")
+    board.showGrid()
+
+    

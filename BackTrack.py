@@ -3,15 +3,29 @@ from Board import *
 board = Board()
 
 def solve(row, col):
-    print("board.grid[row] {}".format(board.grid[row]))
-    for value in range(1, 9+1):
-        print("Value is {} and is being set".format(value))
-        board.grid[row][col] = value
-        board.showGrid()
-        if board.validPlacement(row, col):
+    print("\nNew line")
+    print(f"{row=}", end='')
+    print(f"{col=}")
+    if (row == board.size - 1 and col == board.size):
+        return True
+
+    if col == board.size:
+        col = 0
+        row += 1
+    
+    for value in range(1, board.size+1):
+        # board.showGrid()
+        if board.grid[row][col] != 0:
+            return solve(row, col+1)
+
+        if board.validPlacement(row, col, value):
+            print("Value is {} and is being set".format(value))
+            board.grid[row][col] = value
             print("Recurse")
             if solve(row, col+1):
                 return True
                 print("Winning")
-        else:
-            continue
+
+        board.grid[row][col] = 0
+
+    return False
