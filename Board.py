@@ -15,8 +15,6 @@ class Board():
         self.size = 9
 
     def validPlacement(self, row, col, value):
-        print("is this valid?")
-
         for lines in range(0, self.size):    
             if self.grid[row][lines] == value:
                 return False

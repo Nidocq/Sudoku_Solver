@@ -14,17 +14,15 @@ def solve(row, col):
         row += 1
     
     for value in range(1, board.size+1):
-        # board.showGrid()
         if board.grid[row][col] != 0:
             return solve(row, col+1)
 
         if board.validPlacement(row, col, value):
             print("Value is {} and is being set".format(value))
             board.grid[row][col] = value
-            print("Recurse")
+
             if solve(row, col+1):
                 return True
-                print("Winning")
 
         board.grid[row][col] = 0
 
