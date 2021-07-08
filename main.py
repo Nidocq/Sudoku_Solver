@@ -3,11 +3,17 @@ from Board import *
 from BackTrack import *
 import os 
 
-if solve(0, 0, True): #Enable this for progressive solution
-    os.system("clear")
-    board.showGrid()
-    print("--- Winning ---")
-else:
-    print("No solution was found")
+def server_solve():
+	if solve(0, 0, False):
+		return board.showGrid()
 
-    
+def terminalSolve():
+    if solve(0, 0, False): #Enable this for progressive solution
+        os.system("clear")
+        print(board.showGridTerminal())
+        print("--- Winning ---")
+    else:
+        print("No solution was found")
+
+if '__main__' == __name__:
+	terminalSolve()

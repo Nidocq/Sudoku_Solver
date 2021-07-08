@@ -22,10 +22,10 @@ def solve(row, col, progressive):
 
         if board.validPlacement(row, col, value):
             board.grid[row][col] = value
-            if progressive:
-                time.sleep(0.1)
-                os.system("clear")
-                board.showGrid()
+            # if progressive:
+            #     time.sleep(0.1)
+            #     os.system("clear")
+            #     board.showGrid()
     
 
             if solve(row, col+1, progressive):

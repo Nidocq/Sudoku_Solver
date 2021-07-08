@@ -31,6 +31,12 @@ class Board():
 
         return True 
 
-    def showGrid(self):
+    def showGridTerminal(self):
         for i in self.grid:
             print(i)
+
+    def showGrid(self) -> str:
+        boardString = ''
+        for i in self.grid:
+            boardString += str(i) + "</br>"
+        return boardString
